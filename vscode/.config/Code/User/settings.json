@@ -1,0 +1,63 @@
+{
+    //workbench settings
+    "workbench.activityBar.location": "top",
+    "workbench.sideBar.location": "right",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.showTabs": "none",
+    "workbench.editor.limit.value": 1,
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
+   //files save
+    "files.autoSave": "onWindowChange",
+    //editor settings
+    "editor.fontSize": 17,
+    "editor.lineHeight": 20,
+    "editor.wordWrap": "off",
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "relative",
+    "editor.cursorBlinking": "phase",
+    "editor.cursorStyle": "block",
+    "editor.fontFamily": "IosevkaTerm Nerd Font Mono",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.overviewRulerBorder": false,
+    "editor.suggest.insertMode": "replace",
+    "editor.stickyScroll.enabled": false,
+    "editor.linkedEditing": true,
+    "editor.guides.indentation": false,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.renderLineHighlight": "none",
+    "editor.glyphMargin": false,
+    
+    //explorer settings
+    "explorer.compactFolders": false,
+    //window
+    "window.zoomLevel": 1.4,
+    "window.title": " ",
+    //vim
+    "vim.leader": "<,>",
+    "vim.autoindent": true,
+    "vim.cursorStylePerMode.insert": "block",
+    "vim.useSystemClipboard": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": false,
+    "vim.showcmd": true,
+    "vim.foldfix": true,
+
+    //breadcrumbs
+    "breadcrumbs.enabled": true,
+
+    //github copilot
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+    },
+    "workbench.navigationControl.enabled": false,
+    "window.commandCenter": false,
+    "window.menuBarVisibility": "compact",
+    "workbench.startupEditor": "none",
+    "workbench.layoutControl.enabled": false,
+    "workbench.colorTheme": "Tokyo Night",
+}

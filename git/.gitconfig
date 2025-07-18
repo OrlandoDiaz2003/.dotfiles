@@ -1,0 +1,6 @@
+[user]
+	email = 169166413+OrlandoDiaz2003@users.noreply.github.com
+	name = Orlando
+
+[include]
+	path = ~/.gitconfig.local

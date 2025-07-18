@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+select=$(apropos . | awk '{print $1}' | sort -u | fzf)
+
+if [[ -z "$select" ]]; then
+	exit 0
+fi
+
+modo=$(printf "example\nmanual" | fzf --prompt="Ver ejemplo o el manual?: ")
+
+if [[ "$modo" == "manual" ]]; then
+	tmux neww bash -c "man $select; tmux kill-pane & while [ : ]; do sleep 1; done"
+elif [[ "$modo" == "example" ]]; then
+
+	tmux neww bash -c "tldr $select; while [ : ]; do sleep 1; done"
+else
+	echo "no seleccionaste ninguna opcion"
+	exit 1
+fi
+
