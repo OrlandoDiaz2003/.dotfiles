@@ -1,4 +1,22 @@
 return {
+    -- lsp package manager
+    {
+	"mason-org/mason.nvim",
+	config = function ()
+	    require("mason").setup{}
+	end
+    },
+
+    --lsp mason config
+    {
+	"mason-org/mason-lspconfig.nvim",
+	config = function ()
+	    require("mason-lspconfig").setup({
+		ensure_installed = { "clangd" }
+	    })
+	end
+    },
+    --lsp config
    {
       "neovim/nvim-lspconfig",
       dependencies = {

@@ -1,4 +1,7 @@
 require("config.lazy")
+--transparency
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 --opt
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
