@@ -3,8 +3,8 @@ return {
 	enabled = true,
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	config = function()
-		require('lualine').setup()
+		require('lualine').setup({
+		    options = {themes = 'gruvbox-material'}
+		})
 	end
 }
-	
-	

@@ -26,6 +26,6 @@ require("lazy").setup({
   spec = {
     -- import your plugins
       { import = "config.plugins" },
-      { "olimorris/onedarkpro.nvim", config = function () vim.cmd.colorscheme "onedark_dark" end},
+      {"sainnhe/gruvbox-material", config = function () vim.cmd.colorscheme 'gruvbox-material' end},
   },
 })
