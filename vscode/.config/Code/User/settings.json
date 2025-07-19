@@ -28,7 +28,9 @@
     "editor.semanticHighlighting.enabled": true,
     "editor.renderLineHighlight": "none",
     "editor.glyphMargin": false,
-    
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.autoSurround": "never",
     //explorer settings
     "explorer.compactFolders": false,
     //window
@@ -59,5 +61,5 @@
     "window.menuBarVisibility": "compact",
     "workbench.startupEditor": "none",
     "workbench.layoutControl.enabled": false,
-    "workbench.colorTheme": "onedark.nvim",
+    "workbench.colorTheme": "Tokyo Night",
 }

@@ -13,6 +13,10 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 --keymaps
 vim.keymap.set("n", "<Leader>pv", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<Leader>|", "<cmd>vsplit<CR>")
+vim.keymap.set("n", "<Leader>-", "<cmd>split<CR>")
+vim.keymap.set("n", "<Leader>q", "<cmd>close<CR>")
+
 --lsp
 vim.diagnostic.config({
   virtual_text = true,
