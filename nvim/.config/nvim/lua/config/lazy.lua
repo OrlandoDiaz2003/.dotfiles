@@ -26,6 +26,6 @@ require("lazy").setup({
   spec = {
     -- import your plugins
       { import = "config.plugins" },
-      { "catppuccin/nvim", name = "catppuccin", config = function () vim.cmd.colorscheme "catppuccin-mocha" end},
+      { "olimorris/onedarkpro.nvim", config = function () vim.cmd.colorscheme "onedark_dark" end},
   },
 })
