@@ -1,7 +1,6 @@
 require("config.lazy")
-
 --opt
-vim.opt.shiftwidth = 3
+vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.number = true
 vim.opt.wrap = false

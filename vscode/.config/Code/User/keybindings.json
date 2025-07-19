@@ -83,7 +83,7 @@
     "when": "vim.mode == 'Normal'"
   },
 
- // Coding
+ // lsp 
   {
     "key": "space a",
     "command": "editor.action.quickFix",
@@ -104,6 +104,37 @@
     "command": "editor.action.showHover",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
+  {
+    "key": "space g d",
+    "command": "editor.action.revealDefinition",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g r",
+    "command": "editor.action.goToReferences",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g i",
+    "command": "editor.action.goToImplementation",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible || vim.mode == Insert"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible || vim.mode == Insert"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "acceptSelectedSuggestion",
+    "when": "suggestWidgetVisible || vim.mode == Insert"
+  },
+  //file tree 
   {
     "key": "space c r",
     "command": "editor.action.rename",
@@ -128,21 +159,6 @@
     "key": "space space",
     "command": "workbench.action.quickOpen",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  },
-  {
-    "key": "space g d",
-    "command": "editor.action.revealDefinition",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "space g r",
-    "command": "editor.action.goToReferences",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "space g i",
-    "command": "editor.action.goToImplementation",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
   },
 
   //Copilot chat
