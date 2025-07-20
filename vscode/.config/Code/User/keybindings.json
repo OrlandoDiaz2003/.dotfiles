@@ -1,16 +1,62 @@
 [
   // Navigation
-  { "key": "ctrl-h", "command": "workbench.action.navigateLeft" },
-  { "key": "ctrl-l", "command": "workbench.action.navigateRight" },
-  { "key": "ctrl-k", "command": "workbench.action.navigateUp" },
-  { "key": "ctrl-j", "command": "workbench.action.navigateDown" },
-
+  {
+    "key": "ctrl-h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl-l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl-k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl-j",
+    "command": "workbench.action.navigateDown"
+  },
   {
     "key": "space ,",
     "command": "workbench.action.showAllEditors",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
-
+  //harpoon
+  {
+    "key": "ctrl+e",
+    "command": "vscode-harpoon.editorQuickPick",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space a",
+    "command": "vscode-harpoon.addEditor",
+    "when":"vim.mode=='Normal'&&editorTextFocus"
+  },
+  {
+    "key": "space 1",
+    "command": "vscode-harpoon.gotoEditor1",
+    "when":"vim.mode=='Normal'&&editorTextFocus"
+  },
+{
+    "key": "space 2",
+    "command": "vscode-harpoon.gotoEditor2",
+    "when":"vim.mode=='Normal'&&editorTextFocus"
+  },
+{
+    "key": "space 3",
+    "command": "vscode-harpoon.gotoEditor3",
+    "when":"vim.mode=='Normal'&&editorTextFocus"
+  },
+  {
+    "key": "space 4",
+    "command": "vscode-harpoon.gotoEditor4",
+    "when":"vim.mode=='Normal'&&editorTextFocus"
+  },
+{
+    "key": "space 5",
+    "command": "vscode-harpoon.gotoEditor5",
+    "when":"vim.mode=='Normal'&&editorTextFocus"
+  },
   //file explorer
   {
     "key": "space e",
@@ -34,26 +80,22 @@
     },
     "when": "sideBarFocus && !inputFocus"
   },
-
   {
     "key": "space e",
     "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible",
     "command": "workbench.action.toggleSidebarVisibility"
   },
-  
   //panels
   {
     "key": "space shift+\\",
     "command": "workbench.action.splitEditor",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
-
   {
     "key": "space -",
     "command": "workbench.action.splitEditorDown",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
-
   {
     "key": "ctrl+right",
     "command": "workbench.action.increaseViewSize",
@@ -74,21 +116,6 @@
     "command": "workbench.action.decreaseViewSize",
     "when": "editorFocus"
   },
-  //extension
-
-  //terminal
-  {
-    "key": "ctrl+t",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "vim.mode == 'Normal'"
-  },
-
- // lsp 
-  {
-    "key": "space a",
-    "command": "editor.action.quickFix",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
   {
     "key": "shift-k",
     "command": "editor.action.moveLinesUpAction",
@@ -98,6 +125,24 @@
     "key": "shift-j",
     "command": "editor.action.moveLinesDownAction",
     "when": "vim.mode == 'VisualLine' && editorTextFocus"
+  },
+
+  //terminal
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "vim.mode == 'Normal'"
+  },
+  // lsp 
+  {
+    "key": "space f",
+    "command": "editor.action.formatDocument",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space q",
+    "command": "editor.action.quickFix",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
     "key": "shift-k",
@@ -117,6 +162,21 @@
   {
     "key": "space g i",
     "command": "editor.action.goToImplementation",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c s",
+    "command": "workbench.action.gotoSymbol",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "[ d",
+    "command": "editor.action.marker.prev",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "] d",
+    "command": "editor.action.marker.next",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
@@ -141,11 +201,6 @@
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space c s",
-    "command": "workbench.action.gotoSymbol",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
     "key": "space w",
     "command": "workbench.action.closeEditorsInGroup",
     "when": "(vim.mode == 'Normal' && editorTextFocus) || !inputFocus"
@@ -160,7 +215,6 @@
     "command": "workbench.action.quickOpen",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
-
   //Copilot chat
   {
     "key": "space b",
@@ -178,7 +232,6 @@
       ]
     }
   },
-  
   {
     "key": "ctrl-n",
     "command": "editor.action.addSelectionToNextFindMatch",
@@ -272,5 +325,5 @@
     "key": "space d c",
     "command": "workbench.action.debug.continue",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
-  },
+  }
 ]

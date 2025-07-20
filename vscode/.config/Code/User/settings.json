@@ -7,7 +7,7 @@
     "workbench.editor.showTabs": "none",
     "workbench.editor.limit.value": 1,
     "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
-   //files save
+    //files save
     "files.autoSave": "onWindowChange",
     //editor settings
     "editor.fontSize": 17,
@@ -31,6 +31,8 @@
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
+    "editor.cursorSurroundingLines": 10,
+    "editor.cursorSurroundingLinesStyle": "all",
     //explorer settings
     "explorer.compactFolders": false,
     //window
@@ -40,15 +42,14 @@
     "vim.leader": "<,>",
     "vim.autoindent": true,
     "vim.cursorStylePerMode.insert": "block",
-    "vim.useSystemClipboard": true,
+    "vim.useSystemClipboard": false,
     "vim.incsearch": true,
     "vim.hlsearch": false,
     "vim.showcmd": true,
+    "vim.highlightedyank.enable": true,
     "vim.foldfix": true,
-
     //breadcrumbs
     "breadcrumbs.enabled": true,
-
     //github copilot
     "github.copilot.enable": {
         "*": false,
@@ -61,5 +62,8 @@
     "window.menuBarVisibility": "compact",
     "workbench.startupEditor": "none",
     "workbench.layoutControl.enabled": false,
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "onedark.nvim",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "clangd.path": "/home/orlando/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/20.1.8/clangd_20.1.8/bin/clangd",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
 }
