@@ -1,8 +1,8 @@
 [general]
-import = ["~/.config/alacritty/themes/tokyo_night_enhanced.toml"]
+import = ["~/.config/alacritty/themes/moonfly.toml"]
 
 [window]
-opacity = 0.9
+opacity = 1
 decorations = "None"
 
 [font]

@@ -62,8 +62,6 @@
     "window.menuBarVisibility": "compact",
     "workbench.startupEditor": "none",
     "workbench.layoutControl.enabled": false,
-    "workbench.colorTheme": "onedark.nvim",
-    "C_Cpp.intelliSenseEngine": "disabled",
-    "clangd.path": "/home/orlando/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/20.1.8/clangd_20.1.8/bin/clangd",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.colorTheme": "Tokyo Night",
 }
