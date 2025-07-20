@@ -26,6 +26,7 @@ require("lazy").setup({
   spec = {
     -- import your plugins
       { import = "config.plugins" },
-      {"sainnhe/gruvbox-material", config = function () vim.cmd.colorscheme 'gruvbox-material' end},
+--      {"sainnhe/gruvbox-material", config = function () vim.cmd.colorscheme 'gruvbox-material' end},
+    {"tiagovla/tokyodark.nvim", config = function () vim.cmd.colorscheme 'tokyodark' end},
   },
 })
