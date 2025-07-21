@@ -1,16 +1,19 @@
 require("config.lazy")
+
 --opt
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.number = true
 vim.opt.wrap = false
 vim.opt.relativenumber = true
+vim.opt.virtualedit = "all"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 12
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
+
 --keymaps
 vim.keymap.set("n", "<Leader>pv", "<cmd>Ex<CR>")
 vim.keymap.set("n", "<Leader>|", "<cmd>vsplit<CR>")
