@@ -63,5 +63,5 @@
     "workbench.startupEditor": "none",
     "workbench.layoutControl.enabled": false,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "workbench.colorTheme": "Dark Modern Darker",
+    "workbench.colorTheme": "Catppuccin Frappé",
 }

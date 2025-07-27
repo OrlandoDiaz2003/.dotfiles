@@ -13,7 +13,8 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 12
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
-
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 --keymaps
 vim.keymap.set("n", "<Leader>pv", "<cmd>Ex<CR>")
 vim.keymap.set("n", "<Leader>|", "<cmd>vsplit<CR>")
