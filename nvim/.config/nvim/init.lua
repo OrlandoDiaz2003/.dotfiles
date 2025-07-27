@@ -13,18 +13,16 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 12
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
---keymaps
-vim.keymap.set("n", "<Leader>pv", "<cmd>Ex<CR>")
+vim.opt.winborder = "rounded"
+
+vim.cmd(":hi statusline guibg=NONE")
+-- --keymaps
+vim.keymap.set("n", "<Leader>e", "<cmd>Ex<CR>")
 vim.keymap.set("n", "<Leader>|", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "<Leader>-", "<cmd>split<CR>")
+vim.keymap.set({ "n", "v","x"}, "<Leader>y", '"+y <CR>')
 
 vim.keymap.set("n", "<Leader>q", vim.diagnostic.setloclist)
-
-vim.keymap.set({ "n", "v" }, "<Leader>y>", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-
 vim.keymap.set("n", "<Leader>f", vim.lsp.buf.format)
 
 --lsp
