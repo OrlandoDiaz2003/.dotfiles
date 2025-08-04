@@ -6,9 +6,14 @@
     "workbench.editor.limit.perEditorGroup": true,
     "workbench.editor.showTabs": "none",
     "workbench.editor.limit.value": 1,
-    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
+    "workbench.startupEditor": "none",
+    "workbench.layoutControl.enabled": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.navigationControl.enabled": false,
+
     //files save
     "files.autoSave": "onWindowChange",
+
     //editor settings
     "editor.fontSize": 17,
     "editor.lineHeight": 20,
@@ -17,7 +22,7 @@
     "editor.lineNumbers": "relative",
     "editor.cursorBlinking": "phase",
     "editor.cursorStyle": "block",
-    "editor.fontFamily": "IosevkaTerm Nerd Font Mono",
+    "editor.fontFamily": "DejaVuSansM Nerd Font Mono",
     "editor.scrollbar.vertical": "hidden",
     "editor.hideCursorInOverviewRuler": true,
     "editor.overviewRulerBorder": false,
@@ -33,11 +38,18 @@
     "editor.autoSurround": "never",
     "editor.cursorSurroundingLines": 10,
     "editor.cursorSurroundingLinesStyle": "all",
+    "editor.occurrencesHighlight": "off",
+
+    "scm.diffDecorations": "none",
     //explorer settings
     "explorer.compactFolders": false,
+
     //window
-    "window.zoomLevel": 1.4,
+    "window.zoomLevel": 0, 
     "window.title": " ",
+    "window.commandCenter": false,
+    "window.menuBarVisibility": "compact",
+
     //vim
     "vim.leader": "<,>",
     "vim.autoindent": true,
@@ -48,8 +60,10 @@
     "vim.showcmd": true,
     "vim.highlightedyank.enable": true,
     "vim.foldfix": true,
+
     //breadcrumbs
     "breadcrumbs.enabled": true,
+
     //github copilot
     "github.copilot.enable": {
         "*": false,
@@ -57,11 +71,4 @@
         "markdown": false,
         "scminput": false,
     },
-    "workbench.navigationControl.enabled": false,
-    "window.commandCenter": false,
-    "window.menuBarVisibility": "compact",
-    "workbench.startupEditor": "none",
-    "workbench.layoutControl.enabled": false,
-    "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "workbench.colorTheme": "Catppuccin Frappé",
 }
