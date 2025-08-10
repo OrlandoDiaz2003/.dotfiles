@@ -28,6 +28,7 @@ require("lazy").setup({
 		{ import = "config.plugins" },
 		--{"arturgoms/moonbow.nvim", config = function () vim.cmd.colorscheme 'moonbow' end},
 		--{"rose-pine/neovim", config = function () vim.cmd.colorscheme 'rose-pine'  end},
-		{"vague2k/vague.nvim", config = function () vim.cmd.colorscheme 'vague'  end},
+		--{"vague2k/vague.nvim", config = function () vim.cmd.colorscheme 'vague'  end},
+		{"morhetz/gruvbox", config = function () vim.cmd.colorscheme 'gruvbox' end}
 	},
 })

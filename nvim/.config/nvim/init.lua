@@ -15,7 +15,7 @@ vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
 vim.opt.winborder = "rounded"
 
-vim.cmd(":hi statusline guibg=NONE")
+--vim.cmd(":hi statusline guibg=NONE")
 -- --keymaps
 vim.keymap.set("n", "<Leader>e", "<cmd>Ex<CR>")
 vim.keymap.set("n", "<Leader>|", "<cmd>vsplit<CR>")
