@@ -18,8 +18,24 @@ vim.opt.winborder = "rounded"
 --vim.cmd(":hi statusline guibg=NONE")
 -- --keymaps
 vim.keymap.set("n", "<Leader>e", "<cmd>Ex<CR>")
+
+--splits
 vim.keymap.set("n", "<Leader>|", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "<Leader>-", "<cmd>split<CR>")
+--move between split
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- resize splits
+vim.keymap.set("n", "<C-Right>", "<C-w>>")
+vim.keymap.set("n", "<C-Left>", "<C-w><")
+vim.keymap.set("n", "<C-Up>", "<C-w>-")
+vim.keymap.set("n", "<C-Down>", "<C-w>+")
+
+
+
+--copy to clipboard
 vim.keymap.set({ "n", "v","x"}, "<Leader>y", '"+y <CR>')
 
 vim.keymap.set("n", "<Leader>q", vim.diagnostic.setloclist)
