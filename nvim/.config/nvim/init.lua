@@ -1,4 +1,5 @@
 --vim options
+vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.tabstop = 4
@@ -17,6 +18,8 @@ vim.opt.winborder = "rounded"
 vim.g.mapleader= " "
 -- --keymaps
 vim.keymap.set("n", "<Leader>e", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<Leader>w", "<cmd>write<CR>")
+vim.keymap.set("n", "<Leader>q", ":quit<CR>")
 
 --splits
 vim.keymap.set("n", "<Leader>|", "<cmd>vsplit<CR>")
@@ -35,13 +38,14 @@ vim.keymap.set("n", "<C-Down>", "<C-w>+")
 --copy to clipboard
 vim.keymap.set({ "n", "v","x"}, "<Leader>y", '"+y <CR>')
 
-vim.keymap.set("n", "<Leader>q", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<Leader>f", vim.lsp.buf.format)
 
 --packages
 vim.pack.add({
 	--colorscheme
 	{src = "https://github.com/catppuccin/nvim.git"},
+	{src = "https://github.com/vague2k/vague.nvim"},
+	{src = "https://github.com/ellisonleao/gruvbox.nvim"},
 	--telescope package
 	{src = "https://github.com/nvim-telescope/telescope.nvim"},
 	{src = "https://github.com/nvim-lua/plenary.nvim"},
@@ -63,7 +67,9 @@ vim.pack.add({
 
 })
 --colorscheme
-vim.cmd("colorscheme catppuccin-mocha")
+require "catppuccin".setup({ transparent_background= true })
+vim.cmd("colorscheme catppuccin")
+vim.cmd(":hi statusline guibg=NONE")
 
 --Treessitter
 vim.pack.add({
