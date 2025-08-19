@@ -53,12 +53,18 @@ vim.pack.add{
 	--completions
 	{src = "https://github.com/rafamadriz/friendly-snippets"},
 	{src = "https://github.com/Saghen/blink.cmp",opts ={}},
+
+
 	--LSP
 	{src = "https://github.com/neovim/nvim-lspconfig",deps = {"blink.cmp"}},
 	{src = "https://github.com/mason-org/mason.nvim"},
 	{src = "https://github.com/mason-org/mason-lspconfig.nvim"},
 
-	{src = "https://github.com/L3MON4D3/LuaSnip"}
+	--Snips
+	{src = "https://github.com/L3MON4D3/LuaSnip"},
+
+	--Auto tag
+	{src = "https://github.com/windwp/nvim-ts-autotag",   build = "make install_jsregexp" },
 
 
 }
@@ -80,6 +86,23 @@ require("mason-lspconfig").setup {
 	ensure_installed = {
 		"clangd", "pyright", "bashls", "html", "emmet_ls"
 	}
+}
+--Tree sitter
+require('nvim-treesitter.configs').setup{
+ 	    -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+	    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "html" },
+	    -- Install parsers synchronously (only applied to `ensure_installed`)
+	    sync_install = false,
+	    -- Automatically install missing parsers when entering buffer
+	    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+	    auto_install = true,
+	    ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+	    -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+	    highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	    },
+
 }
 --completions
 local capabilities = require('blink.cmp').get_lsp_capabilities()
@@ -106,6 +129,20 @@ end
 	update_in_insert = false,
 	severity_sort = true,
 })
+
+--Auto tag
+require('nvim-ts-autotag').setup({})
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics,
+	{
+		underline = true,
+		virtual_text = {
+			spacing = 5,
+			severity_limit = 'Warning',
+		},
+		update_in_insert = true,
+	}
+)
 --autocmd
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
