@@ -15,8 +15,7 @@ vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
 vim.opt.winborder = "rounded"
 vim.g.mapleader= " "
-
- -- --keymaps
+-- --keymaps
 vim.keymap.set("n", "<Leader>e", "<cmd>Ex<CR>")
 
 --splits
@@ -40,23 +39,18 @@ vim.keymap.set("n", "<Leader>q", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<Leader>f", vim.lsp.buf.format)
 
 --packages
-vim.pack.add{
+vim.pack.add({
 	--colorscheme
 	{src = "https://github.com/catppuccin/nvim.git"},
 	--telescope package
 	{src = "https://github.com/nvim-telescope/telescope.nvim"},
 	{src = "https://github.com/nvim-lua/plenary.nvim"},
-
-	--treesitter
-	{src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main"},
-
 	--completions
+	{src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master",},
 	{src = "https://github.com/rafamadriz/friendly-snippets"},
-	{src = "https://github.com/Saghen/blink.cmp",opts ={}},
-
-
+	{src = "https://github.com/Saghen/blink.cmp",opts ={},},
 	--LSP
-	{src = "https://github.com/neovim/nvim-lspconfig",deps = {"blink.cmp"}},
+	{src = "https://github.com/neovim/nvim-lspconfig",deps = {"blink.cmp"},},
 	{src = "https://github.com/mason-org/mason.nvim"},
 	{src = "https://github.com/mason-org/mason-lspconfig.nvim"},
 
@@ -64,13 +58,52 @@ vim.pack.add{
 	{src = "https://github.com/L3MON4D3/LuaSnip"},
 
 	--Auto tag
-	{src = "https://github.com/windwp/nvim-ts-autotag",   build = "make install_jsregexp" },
+	{src = "https://github.com/windwp/nvim-ts-autotag",   build = "make install_jsregexp", },
 
 
-}
+})
 --colorscheme
 vim.cmd("colorscheme catppuccin-mocha")
 
+--Treessitter
+vim.pack.add({
+	{
+		src = "https://github.com/nvim-treesitter/nvim-treesitter",
+		version = "master",
+	},
+})
+
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		'lua'
+	},
+	sync_install = false,
+	auto_install = true,
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true,
+	},
+})
+
+vim.api.nvim_create_autocmd('PackChanged', {
+	desc = 'Handle nvim-treesitter updates',
+	group = vim.api.nvim_create_augroup('nvim-treesitter-pack-changed-update-handler', { clear = true }),
+	callback = function(event)
+		if event.data.kind == 'update' then
+			vim.notify('nvim-treesitter updated, running TSUpdate...', vim.log.levels.INFO)
+			---@diagnostic disable-next-line: param-type-mismatch
+			local ok = pcall(vim.cmd, 'TSUpdate')
+			if ok then
+				vim.notify('TSUpdate completed successfully!', vim.log.levels.INFO)
+			else
+				vim.notify('TSUpdate command not available yet, skipping', vim.log.levels.WARN)
+			end
+		end
+	end,
+})
 --telescope
 require('telescope').setup{}
 local builtin = require('telescope.builtin')
@@ -87,23 +120,6 @@ require("mason-lspconfig").setup {
 		"clangd", "pyright", "bashls", "html", "emmet_ls"
 	}
 }
---Tree sitter
-require('nvim-treesitter.configs').setup{
- 	    -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-	    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "html" },
-	    -- Install parsers synchronously (only applied to `ensure_installed`)
-	    sync_install = false,
-	    -- Automatically install missing parsers when entering buffer
-	    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-	    auto_install = true,
-	    ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-	    -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-	    highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	    },
-
-}
 --completions
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 local servers = {"clangd", "pyright", "bashls", "html", "emmet_ls"}
@@ -112,17 +128,17 @@ for _, server in ipairs(servers) do
 	lsp[server].setup{capabilities = capabilities}
 end
 
- require("blink.cmp").setup({
-  keymap = { preset = "default" },
-  appearance = {nerd_font_variant = 'mono'},
-  completion ={documentation = {auto_show = false}},
-  sources = {
-	  default = { 'lsp', 'path', 'snippets', 'buffer' },
-  },
-  fuzzy = { implementation = "lua" }
+require("blink.cmp").setup({
+	keymap = { preset = "default" },
+	appearance = {nerd_font_variant = 'mono'},
+	completion ={documentation = {auto_show = false}},
+	sources = {
+		default = { 'lsp', 'path', 'snippets', 'buffer' },
+	},
+	fuzzy = { implementation = "lua" }
 })
 --diagnostic
- vim.diagnostic.config({
+vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
 	underline = true,
