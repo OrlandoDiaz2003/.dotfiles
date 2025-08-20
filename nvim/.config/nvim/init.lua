@@ -15,7 +15,7 @@ vim.opt.scrolloff = 12
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
 vim.opt.winborder = "rounded"
-vim.g.mapleader= " "
+vim.g.mapleader = " "
 -- --keymaps
 vim.keymap.set("n", "<Leader>e", "<cmd>Ex<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>write<CR>")
@@ -36,38 +36,38 @@ vim.keymap.set("n", "<C-Up>", "<C-w>-")
 vim.keymap.set("n", "<C-Down>", "<C-w>+")
 
 --copy to clipboard
-vim.keymap.set({ "n", "v","x"}, "<Leader>y", '"+y <CR>')
+vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+y <CR>')
 
 vim.keymap.set("n", "<Leader>f", vim.lsp.buf.format)
 
 --packages
 vim.pack.add({
 	--colorscheme
-	{src = "https://github.com/catppuccin/nvim.git"},
-	{src = "https://github.com/vague2k/vague.nvim"},
-	{src = "https://github.com/ellisonleao/gruvbox.nvim"},
+	{ src = "https://github.com/catppuccin/nvim.git" },
+	{ src = "https://github.com/vague2k/vague.nvim" },
+	{ src = "https://github.com/ellisonleao/gruvbox.nvim" },
 	--telescope package
-	{src = "https://github.com/nvim-telescope/telescope.nvim"},
-	{src = "https://github.com/nvim-lua/plenary.nvim"},
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	--completions
-	{src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master",},
-	{src = "https://github.com/rafamadriz/friendly-snippets"},
-	{src = "https://github.com/Saghen/blink.cmp",opts ={},},
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master", },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+	{ src = "https://github.com/Saghen/blink.cmp",                opts = {}, },
 	--LSP
-	{src = "https://github.com/neovim/nvim-lspconfig",deps = {"blink.cmp"},},
-	{src = "https://github.com/mason-org/mason.nvim"},
-	{src = "https://github.com/mason-org/mason-lspconfig.nvim"},
+	{ src = "https://github.com/neovim/nvim-lspconfig",           deps = { "blink.cmp" }, },
+	{ src = "https://github.com/mason-org/mason.nvim" },
+	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
 
 	--Snips
-	{src = "https://github.com/L3MON4D3/LuaSnip"},
+	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 
 	--Auto tag
-	{src = "https://github.com/windwp/nvim-ts-autotag",   build = "make install_jsregexp", },
+	{ src = "https://github.com/windwp/nvim-ts-autotag",          build = "make install_jsregexp", },
 
 
 })
 --colorscheme
-require "catppuccin".setup({ transparent_background= true })
+require "catppuccin".setup({ transparent_background = true })
 vim.cmd("colorscheme catppuccin")
 vim.cmd(":hi statusline guibg=NONE")
 
@@ -111,15 +111,15 @@ vim.api.nvim_create_autocmd('PackChanged', {
 	end,
 })
 --telescope
-require('telescope').setup{}
+require('telescope').setup {}
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader><space>', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
---LSP 
-local lsp =  require("lspconfig")
+--LSP
+local lsp = require("lspconfig")
 require("mason").setup()
 require("mason-lspconfig").setup {
 	ensure_installed = {
@@ -128,16 +128,16 @@ require("mason-lspconfig").setup {
 }
 --completions
 local capabilities = require('blink.cmp').get_lsp_capabilities()
-local servers = {"clangd", "pyright", "bashls", "html", "emmet_ls"}
+local servers = { "clangd", "pyright", "bashls", "html", "emmet_ls", "ts_ls", "eslint" }
 
 for _, server in ipairs(servers) do
-	lsp[server].setup{capabilities = capabilities}
+	lsp[server].setup { capabilities = capabilities }
 end
 
 require("blink.cmp").setup({
 	keymap = { preset = "default" },
-	appearance = {nerd_font_variant = 'mono'},
-	completion ={documentation = {auto_show = false}},
+	appearance = { nerd_font_variant = 'mono' },
+	completion = { documentation = { auto_show = false } },
 	sources = {
 		default = { 'lsp', 'path', 'snippets', 'buffer' },
 	},
@@ -173,4 +173,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 		vim.hl.on_yank()
 	end,
 })
-
