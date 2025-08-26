@@ -68,6 +68,8 @@ vim.pack.add({
 })
 --colorscheme
 require "catppuccin".setup({ transparent_background = true })
+require "gruvbox".setup({transparent_mode = true})
+require "vague".setup({transparent = true})
 vim.cmd("colorscheme catppuccin")
 vim.cmd(":hi statusline guibg=NONE")
 
