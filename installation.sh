@@ -5,8 +5,7 @@ sudo apt update -y && sudo apt upgrade -y
 
 sudo apt install stow tmux zsh git gcc clang cmake make fzf ripgrep npm zip unzip build-essential
 
-git clone https://github.com/OrlandoDiaz2003/.dotfiles $HOME/.dotfiles
-git clone https://github.com/neovim/neovim.git
+git clone https://github.com/neovim/neovim.git $HOME/neovim
 
 cd $HOME/neovim/
 make CMAKE_BUILD_TYPE=RelWithDebInfo

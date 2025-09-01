@@ -40,12 +40,22 @@ vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+y <CR>')
 
 vim.keymap.set("n", "<Leader>f", vim.lsp.buf.format)
 
+vim.g.netrw_banner = 0
+vim.g.netrw_listyle = 0
+vim.api.nvim_create_autocmd('FileType',{
+	pattern = "netrw",
+	callback = function()
+		vim.wo.relativenumber = true
+		vim.wo.number = true
+	end,
+
+})
 --packages
 vim.pack.add({
 	--colorscheme
 	{ src = "https://github.com/catppuccin/nvim.git" },
 	{ src = "https://github.com/vague2k/vague.nvim" },
-	{ src = "https://github.com/ellisonleao/gruvbox.nvim" },
+	{ src = "https://github.com/rose-pine/neovim" },
 	--telescope package
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -68,9 +78,9 @@ vim.pack.add({
 })
 --colorscheme
 require "catppuccin".setup({ transparent_background = true })
-require "gruvbox".setup({transparent_mode = true})
+require "rose-pine".setup({styles = {transparency = true}})
 require "vague".setup({transparent = true})
-vim.cmd("colorscheme catppuccin")
+vim.cmd("color rose-pine")
 vim.cmd(":hi statusline guibg=NONE")
 
 --Treessitter

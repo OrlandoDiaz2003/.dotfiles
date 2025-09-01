@@ -1,4 +1,3 @@
-[general]
 import = ["~/.config/alacritty/themes/vague.toml"]
 
 [window]
