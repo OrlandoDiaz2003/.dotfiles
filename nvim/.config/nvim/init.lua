@@ -6,7 +6,6 @@ vim.opt.tabstop = 4
 vim.opt.swapfile = false
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
-vim.opt.wrap = false
 vim.opt.virtualedit = "all"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -17,7 +16,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.winborder = "rounded"
 vim.g.mapleader = " "
 -- --keymaps
-vim.keymap.set("n", "<Leader>e", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<Leader>e", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>write<CR>")
 vim.keymap.set("n", "<Leader>q", ":quit<CR>")
 
@@ -39,10 +38,13 @@ vim.keymap.set("n", "<C-Down>", "<C-w>+")
 vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+y <CR>')
 
 vim.keymap.set("n", "<Leader>f", vim.lsp.buf.format)
-
+vim.g.netrw_liststyle = 1
 vim.g.netrw_banner = 0
-vim.g.netrw_listyle = 0
-vim.api.nvim_create_autocmd('FileType',{
+vim.g.netrw_sizestyle = "H"
+vim.g.netrw_timefmt = "%d %b %Y %H:%M"
+vim.g.netrw_keepdir = 0
+
+vim.api.nvim_create_autocmd('FileType', {
 	pattern = "netrw",
 	callback = function()
 		vim.wo.relativenumber = true
@@ -56,6 +58,8 @@ vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim.git" },
 	{ src = "https://github.com/vague2k/vague.nvim" },
 	{ src = "https://github.com/rose-pine/neovim" },
+	--navegation
+	{ src = "https://github.com/stevearc/oil.nvim" },
 	--telescope package
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -67,22 +71,30 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig",           deps = { "blink.cmp" }, },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-
 	--Snips
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
-
 	--Auto tag
-	{ src = "https://github.com/windwp/nvim-ts-autotag",          build = "make install_jsregexp", },
+	{ src = "https://github.com/windwp/nvim-ts-autotag", build = "make install_jsregexp", },
 
 
 })
 --colorscheme
 require "catppuccin".setup({ transparent_background = true })
-require "rose-pine".setup({styles = {transparency = true}})
-require "vague".setup({transparent = true})
+require "rose-pine".setup({ styles = { transparency = true } })
+require "vague".setup({ transparent = true })
 vim.cmd("color rose-pine")
 vim.cmd(":hi statusline guibg=NONE")
 
+require "oil".setup({
+	columns = {
+		"permissions",
+		"size",
+		"mtime"
+	},
+	view_options = {
+		show_hidden = true,
+	}
+})
 --Treessitter
 vim.pack.add({
 	{
