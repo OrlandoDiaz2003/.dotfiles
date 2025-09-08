@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd('FileType', {
 --packages
 vim.pack.add({
 	--colorscheme
-	{ src = "https://github.com/catppuccin/nvim.git" },
+	{ src = "https://github.com/blazkowolf/gruber-darker.nvim" },
 	{ src = "https://github.com/vague2k/vague.nvim" },
 	{ src = "https://github.com/rose-pine/neovim" },
 	--navegation
@@ -79,10 +79,9 @@ vim.pack.add({
 
 })
 --colorscheme
-require "catppuccin".setup({ transparent_background = true })
 require "rose-pine".setup({ styles = { transparency = true } })
 require "vague".setup({ transparent = true })
-vim.cmd("color rose-pine")
+vim.cmd("color gruber-darker")
 vim.cmd(":hi statusline guibg=NONE")
 
 require "oil".setup({
