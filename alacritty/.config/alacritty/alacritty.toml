@@ -1,8 +1,11 @@
 [general]
-import = ["~/.config/alacritty/themes/gruber_darker.toml"]
+import = ["~/.config/alacritty/themes/github_dark_high_contrast.toml"]
 
 [window]
 opacity = 1
+
+[cursor]
+style = {shape = "block", blinking = "On"}
 
 [font]
 size = 18

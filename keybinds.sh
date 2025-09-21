@@ -1,4 +1,4 @@
-  #!/bin/bash
+#!/bin/bash
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings \
 	"['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"

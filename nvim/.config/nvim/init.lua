@@ -9,6 +9,7 @@ vim.opt.smartindent = true
 vim.opt.virtualedit = "all"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 12
 vim.opt.guicursor = ""
@@ -56,8 +57,8 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.pack.add({
 	--colorscheme
 	{ src = "https://github.com/blazkowolf/gruber-darker.nvim" },
-	{ src = "https://github.com/vague2k/vague.nvim" },
-	{ src = "https://github.com/rose-pine/neovim" },
+	{ src = "https://github.com/projekt0n/github-nvim-theme" },
+	{ src = "https://github.com/ellisonleao/gruvbox.nvim" },
 	--navegation
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	--telescope package
@@ -79,10 +80,8 @@ vim.pack.add({
 
 })
 --colorscheme
-require "rose-pine".setup({ styles = { transparency = true } })
-require "vague".setup({ transparent = true })
-vim.cmd("color gruber-darker")
-vim.cmd(":hi statusline guibg=NONE")
+require "gruvbox".setup({transparent_mode = true})
+vim.cmd("color github_dark_high_contrast ")
 
 require "oil".setup({
 	columns = {
