@@ -98,6 +98,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export MANPAGER="nvim +Man!"
+export PATH=$PATH:/usr/local/go/bin
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh

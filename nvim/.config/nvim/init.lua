@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd('FileType', {
 --packages
 vim.pack.add({
 	--colorscheme
-	{ src = "https://github.com/blazkowolf/gruber-darker.nvim" },
+	{ src = "https://github.com/folke/tokyonight.nvim" },
 	{ src = "https://github.com/projekt0n/github-nvim-theme" },
 	{ src = "https://github.com/ellisonleao/gruvbox.nvim" },
 	--navegation
@@ -81,7 +81,8 @@ vim.pack.add({
 })
 --colorscheme
 require "gruvbox".setup({transparent_mode = true})
-vim.cmd("color github_dark_high_contrast ")
+require "tokyonight".setup({transparent = true})
+vim.cmd("color tokyonight-night")
 
 require "oil".setup({
 	columns = {
