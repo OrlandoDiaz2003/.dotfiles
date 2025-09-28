@@ -1,8 +1,8 @@
 [general]
-import = ["~/.config/alacritty/themes/xterm.toml"]
+import = ["~/.config/alacritty/themes/bashbunnitheme.toml"]
 
 [window]
-opacity = 0.9
+opacity = 1
 
 [cursor]
 style = {shape = "block", blinking = "On"}

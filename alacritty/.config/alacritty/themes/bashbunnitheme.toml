@@ -3,7 +3,7 @@
 # Colores principales
 [colors.primary]
 background = "#101010"  # Negro oscuro pero no tan agresivo
-foreground = "#c0caf5"  # Azul claro estilo Tokyo Night
+foreground = "#C5C8C6"  # Azul claro estilo Tokyo Night
 
 # Colores normales
 [colors.normal]

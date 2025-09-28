@@ -56,9 +56,7 @@ vim.api.nvim_create_autocmd('FileType', {
 --packages
 vim.pack.add({
 	--colorscheme
-	{ src = "https://github.com/folke/tokyonight.nvim" },
-	{ src = "https://github.com/projekt0n/github-nvim-theme" },
-	{ src = "https://github.com/ellisonleao/gruvbox.nvim" },
+	{ src = "https://github.com/folke/tokyonight.nvim"},
 	--navegation
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	--telescope package
@@ -80,7 +78,6 @@ vim.pack.add({
 
 })
 --colorscheme
-require "gruvbox".setup({transparent_mode = true})
 require "tokyonight".setup({transparent = true})
 vim.cmd("color tokyonight-night")
 
@@ -134,12 +131,22 @@ vim.api.nvim_create_autocmd('PackChanged', {
 	end,
 })
 --telescope
-require('telescope').setup {}
+local themes = require('telescope.themes')
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader><space>', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+local ivy_opts = themes.get_ivy()
+
+vim.keymap.set('n', '<leader><space>', function()
+  builtin.find_files(ivy_opts)
+end, { desc = 'Telescope find files (ivy)' })
+vim.keymap.set('n', '<leader>fg', function()
+  builtin.live_grep(ivy_opts)
+end, { desc = 'Telescope live grep (ivy)' })
+vim.keymap.set('n', '<leader>fb', function()
+  builtin.buffers(ivy_opts)
+end, { desc = 'Telescope buffers (ivy)' })
+vim.keymap.set('n', '<leader>fh', function()
+  builtin.help_tags(ivy_opts)
+end, { desc = 'Telescope help tags (ivy)' })
 
 --LSP
 local lsp = require("lspconfig")

@@ -6,7 +6,7 @@
 # Upstream: 	https://github.com/vague2k/vague.nvim/blob/main/extras/alacritty/vague.toml
 
 [colors.primary]
-background = '#000000'
+background = '#101010'
 foreground = '#cdcdcd'
 
 [colors.normal]

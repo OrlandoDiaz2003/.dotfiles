@@ -3,9 +3,23 @@
 set -e
 sudo apt update -y && sudo apt upgrade -y
 
-sudo apt install stow tmux zsh git gcc clang cmake make fzf ripgrep npm zip unzip build-essential
+sudo apt install \
+	stow \
+	tmux \
+	zsh \
+	git \
+	gcc \
+	clang \
+	cmake \
+	make \
+	fzf \
+	ripgrep \
+	npm \
+	zip \
+	unzip \
+	build-essential
 
-git clone https://github.com/neovim/neovim.git $HOME/neovim
+git clone --depth=1 https://github.com/neovim/neovim.git $HOME/neovim
 
 cd $HOME/neovim/
 make CMAKE_BUILD_TYPE=RelWithDebInfo

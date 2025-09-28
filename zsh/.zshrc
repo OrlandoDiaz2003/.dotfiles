@@ -15,6 +15,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias vsc="code ."
 alias open="nautilus ."
+alias neofetch="fastfetch --config neofetch"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -99,6 +100,9 @@ export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export MANPAGER="nvim +Man!"
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$HOME/opt/Godot/:$PATH
+export PATH=$HOME/opt/:$PATH
+export PATH=$HOME/.config/emacs/bin:$PATH
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
