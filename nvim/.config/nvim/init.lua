@@ -16,6 +16,7 @@ vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
 vim.opt.winborder = "rounded"
 vim.g.mapleader = " "
+vim.opt.laststatus = 3
 -- --keymaps
 vim.keymap.set("n", "<Leader>e", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>write<CR>")
@@ -56,7 +57,9 @@ vim.api.nvim_create_autocmd('FileType', {
 --packages
 vim.pack.add({
 	--colorscheme
-	{ src = "https://github.com/folke/tokyonight.nvim"},
+	{ src = "https://github.com/blazkowolf/gruber-darker.nvim"},
+	{ src = "https://github.com/navarasu/onedark.nvim"},
+	{src = "https://github.com/nvim-lualine/lualine.nvim"},
 	--navegation
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	--telescope package
@@ -77,10 +80,30 @@ vim.pack.add({
 
 
 })
+--lualine
+require "lualine".setup({
+	options = {
+		theme = 'onedark',
+    	component_separators = { left = '', right = ''},
+    	section_separators = { left = '', right = ''},
+  },
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {'branch', 'diff', 'diagnostics'},
+		lualine_c = {'filename'},
+		lualine_x = {},
+		lualine_y = {'progress'},
+		lualine_z = {'location'}
+	},
+})
 --colorscheme
-require "tokyonight".setup({transparent = true})
-vim.cmd("color tokyonight-night")
-
+-- Lua
+require('onedark').setup {
+    style = 'warmer',
+	transparent = true
+}
+require('onedark').load()
+vim.cmd("color onedark")
 require "oil".setup({
 	columns = {
 		"permissions",
