@@ -17,6 +17,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.winborder = "rounded"
 vim.g.mapleader = " "
 vim.opt.laststatus = 3
+
 -- --keymaps
 vim.keymap.set("n", "<Leader>e", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>write<CR>")
@@ -35,6 +36,10 @@ vim.keymap.set("n", "<C-Right>", "<C-w>>")
 vim.keymap.set("n", "<C-Left>", "<C-w><")
 vim.keymap.set("n", "<C-Up>", "<C-w>-")
 vim.keymap.set("n", "<C-Down>", "<C-w>+")
+
+--exit terminal mode
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], {noremap = true})
+vim.keymap.set("n", "<Leader>t",  ":belowright 15split | term <CR>")
 
 --copy to clipboard
 vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+y <CR>')
@@ -60,6 +65,7 @@ vim.pack.add({
 	{ src = "https://github.com/blazkowolf/gruber-darker.nvim"},
 	{ src = "https://github.com/navarasu/onedark.nvim"},
 	{src = "https://github.com/nvim-lualine/lualine.nvim"},
+	{src = "https://github.com/binhtran432k/dracula.nvim"},
 	--navegation
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	--telescope package
@@ -83,7 +89,7 @@ vim.pack.add({
 --lualine
 require "lualine".setup({
 	options = {
-		theme = 'onedark',
+		theme = 'dacrula',
     	component_separators = { left = '', right = ''},
     	section_separators = { left = '', right = ''},
   },
@@ -103,7 +109,7 @@ require('onedark').setup {
 	transparent = true
 }
 require('onedark').load()
-vim.cmd("color onedark")
+vim.cmd("color dracula-soft")
 require "oil".setup({
 	columns = {
 		"permissions",
