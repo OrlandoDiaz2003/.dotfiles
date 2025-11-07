@@ -109,7 +109,7 @@ require('onedark').setup {
 	transparent = true
 }
 require('onedark').load()
-vim.cmd("color dracula-soft")
+vim.cmd("color gruber-darker")
 require "oil".setup({
 	columns = {
 		"permissions",
@@ -178,7 +178,6 @@ vim.keymap.set('n', '<leader>fh', function()
 end, { desc = 'Telescope help tags (ivy)' })
 
 --LSP
-local lsp = require("lspconfig")
 require("mason").setup()
 require("mason-lspconfig").setup {
 	ensure_installed = {
@@ -190,7 +189,7 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 local servers = { "clangd", "pyright", "bashls", "html", "emmet_ls", "ts_ls", "eslint" }
 
 for _, server in ipairs(servers) do
-	lsp[server].setup { capabilities = capabilities }
+	vim.lsp.config(server,{ capabilities = capabilities })
 end
 
 require("blink.cmp").setup({

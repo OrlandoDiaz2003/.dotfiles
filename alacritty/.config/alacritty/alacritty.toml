@@ -11,4 +11,4 @@ style = {shape = "block", blinking = "On"}
 size = 18
 
 [font.normal]
-family= "UbuntuSansMono Nerd Font"
+family= "Iosevka Nerd Font Mono"
