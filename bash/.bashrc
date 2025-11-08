@@ -17,23 +17,12 @@ export HISTTIMEFORMAT='%Y-%m-%dT%H:%M:%S '
 
 shopt -s histappend
 
-#colors
- RESET='\[\e[0m\]'
- BLACK='\[\e[0;30m\]'
- RED='\[\e[0;31m\]'
- GREEN='\[\e[0;32m\]'
- YELLOW='\[\e[0;33m\]'
- BLUE='\[\e[0;34m\]'
- MAGENTA='\[\e[0;35m\]'
- CYAN='\[\e[0;36m\]'
- WHITE='\[\e[0;37m\]'
-
 #git completion
 parse_git_branch() {
  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-PS1="[\h@${RED}\u${RESET} \w $(parse_git_branch)${RESET}]$ "
+PS1='[\[\e[38;5;244m\]\h\[\e[0m\]@\[\e[1;31m\]\u\[\e[0m\] \w \[\e[38;5;110m\]$(parse_git_branch)\[\e[0m\]]$ '
 
 export PATH
 export PATH=$HOME/.local/scripts:$PATH
