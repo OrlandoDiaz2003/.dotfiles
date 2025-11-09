@@ -13,7 +13,7 @@ fi
 #historial
 export HISTSIZE=1000000
 export HISTFILESIZE=2000000
-export HISTTIMEFORMAT='%Y-%m-%dT%H:%M:%S '
+export HISTTIMEFORMAT='%d-%m-%YT%H: %M:%S '
 
 shopt -s histappend
 
@@ -32,7 +32,7 @@ export MANPAGER="nvim +Man!"
 
 #alias
 alias vsc="code ."
-alias open="nautilus ."
+alias open="xdg-open ."
 alias neofetch="fastfetch --config neofetch"
 alias gemini="npx https://github.com/google-gemini/gemini-cli"
 
