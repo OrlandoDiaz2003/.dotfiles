@@ -1,0 +1,70 @@
+
+
+:root{
+	--color-background: #1E1E2E;
+	--color-foreground: #CDD6F4;
+	--color-red:        #F38BA8;
+	--color-green:      #A6E3A1;
+	--color-magenta:    #CBA6F7;
+	--color-blue:       #89B4FA;
+	--color-cyan:       #94E2D5;
+}
+
+body{
+	background-color: var(--color-background);
+	font-family: "JetBrainsMono Nerd Font Mono","monospace", monospace;
+	font-size: 25px;
+	color: var(--color-foreground)
+}
+a{
+	all:unset;
+	color:var(--color-blue);
+}
+a:hover{
+	cursor: pointer;
+	color:var(--color-magenta)
+}
+
+input{
+	all:unset;
+}
+.header{
+	color: var(--color-foreground);
+	display: flex;
+	justify-content: center;
+}
+
+
+.prompt_1{
+	display:flex;
+	flex-direction: row;
+
+}
+
+.host-user{
+	color: var(--color-green);
+}
+
+.directory{
+	color: var(--color-blue);
+}
+
+.main-container{
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 500px;
+	padding: 0;
+	margin: 0;
+}
+
+.container-card{
+	display: flex;
+	flex-direction: column;
+}
+
+.card{
+	display: flex;
+	flex-direction: row;
+}
