@@ -28,8 +28,9 @@ export PATH
 export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/opt/node/bin:$PATH
 export PATH=$HOME/opt/android-studio/bin:$PATH
-export MANPAGER="nvim +Man!"
-
+export LESS='-R --use-color -Dd+r -Du+b'
+export MANPAGER="less -R --use-color -Dd+b -Du+g"
+export MANROFFOPT='-c'
 
 #alias
 alias ls='ls --color=auto'

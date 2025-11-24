@@ -1,14 +1,11 @@
-[general]
-import = ["~/.config/alacritty/themes/gruber_darker.toml"]
-
 [window]
 opacity = 1
 
 [cursor]
-style = {shape = "block", blinking = "On"}
+style = {shape = "Block", blinking = "on"}
 
 [font]
 size = 18
 
 [font.normal]
-family= "Iosevka Nerd Font Mono"
+family= "DejaVuSansM Nerd Font Mono"
