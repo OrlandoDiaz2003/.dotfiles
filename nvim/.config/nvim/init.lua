@@ -1,4 +1,3 @@
---vim options
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
@@ -9,7 +8,7 @@ vim.opt.smartindent = true
 vim.opt.virtualedit = "all"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 12
 vim.opt.guicursor = ""
@@ -18,33 +17,23 @@ vim.opt.winborder = "rounded"
 vim.g.mapleader = " "
 vim.opt.laststatus = 3
 
--- --keymaps
 vim.keymap.set("n", "<Leader>e", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>write<CR>")
 vim.keymap.set("n", "<Leader>q", ":quit<CR>")
 
---splits
-vim.keymap.set("n", "<Leader>|", "<cmd>vsplit<CR>")
-vim.keymap.set("n", "<Leader>-", "<cmd>split<CR>")
---move between split
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
--- resize splits
 vim.keymap.set("n", "<C-Right>", "<C-w>>")
 vim.keymap.set("n", "<C-Left>", "<C-w><")
 vim.keymap.set("n", "<C-Up>", "<C-w>-")
 vim.keymap.set("n", "<C-Down>", "<C-w>+")
+vim.keymap.set("n", "<F9>", ":below Compile<CR>")
 
---exit terminal mode
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], {noremap = true})
 vim.keymap.set("n", "<Leader>t",  ":belowright 15split | term <CR>")
 
---copy to clipboard
 vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+y <CR>')
 
 vim.keymap.set("n", "<Leader>f", vim.lsp.buf.format)
+
 vim.g.netrw_liststyle = 1
 vim.g.netrw_banner = 0
 vim.g.netrw_sizestyle = "H"
@@ -59,57 +48,36 @@ vim.api.nvim_create_autocmd('FileType', {
 	end,
 
 })
---packages
+
 vim.pack.add({
-	--colorscheme
 	{ src = "https://github.com/blazkowolf/gruber-darker.nvim"},
+	{ src = "https://github.com/morhetz/gruvbox"},
 	{ src = "https://github.com/navarasu/onedark.nvim"},
-	{src = "https://github.com/nvim-lualine/lualine.nvim"},
-	{src = "https://github.com/binhtran432k/dracula.nvim"},
-	--navegation
+	{ src = "https://github.com/itchyny/lightline.vim"},
 	{ src = "https://github.com/stevearc/oil.nvim" },
-	--telescope package
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
-	--completions
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master", },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/Saghen/blink.cmp",                opts = {}, },
-	--LSP
 	{ src = "https://github.com/neovim/nvim-lspconfig",           deps = { "blink.cmp" }, },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-	--Snips
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
-	--Auto tag
+	{ src = "https://github.com/ej-shafran/compile-mode.nvim" ,deps={'plenary'} },
 	{ src = "https://github.com/windwp/nvim-ts-autotag", build = "make install_jsregexp", },
-
-
 })
---lualine
-require "lualine".setup({
-	options = {
-		theme = 'dacrula',
-    	component_separators = { left = '', right = ''},
-    	section_separators = { left = '', right = ''},
-  },
-	sections = {
-		lualine_a = {'mode'},
-		lualine_b = {'branch', 'diff', 'diagnostics'},
-		lualine_c = {'filename'},
-		lualine_x = {},
-		lualine_y = {'progress'},
-		lualine_z = {'location'}
-	},
+
+vim.g.compile_mode = {}
+vim.g.lightline = { colorscheme = 'one' }
+
+vim.g.gruvbox_contrast_dark = "hard"
+vim.g.gruvbox_termcolors= 16
+require("onedark").setup({
+	style="dark",
 })
---colorscheme
--- Lua
-require('onedark').setup {
-    style = 'warmer',
-	transparent = true
-}
-require('onedark').load()
-vim.cmd("color gruber-darker")
+vim.cmd("color onedark")
+
 require "oil".setup({
 	columns = {
 		"permissions",
@@ -119,13 +87,6 @@ require "oil".setup({
 	view_options = {
 		show_hidden = true,
 	}
-})
---Treessitter
-vim.pack.add({
-	{
-		src = "https://github.com/nvim-treesitter/nvim-treesitter",
-		version = "master",
-	},
 })
 
 require("nvim-treesitter.configs").setup({
@@ -159,7 +120,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
 		end
 	end,
 })
---telescope
+
 local themes = require('telescope.themes')
 local builtin = require('telescope.builtin')
 local ivy_opts = themes.get_ivy()
@@ -177,14 +138,12 @@ vim.keymap.set('n', '<leader>fh', function()
   builtin.help_tags(ivy_opts)
 end, { desc = 'Telescope help tags (ivy)' })
 
---LSP
 require("mason").setup()
 require("mason-lspconfig").setup {
 	ensure_installed = {
-		"clangd", "pyright", "bashls", "html", "emmet_ls"
+		"clangd", "bashls", "html", "emmet_ls"
 	}
 }
---completions
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 local servers = { "clangd", "pyright", "bashls", "html", "emmet_ls", "ts_ls", "eslint" }
 
@@ -201,7 +160,7 @@ require("blink.cmp").setup({
 	},
 	fuzzy = { implementation = "lua" }
 })
---diagnostic
+
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
@@ -210,7 +169,6 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
---Auto tag
 require('nvim-ts-autotag').setup({})
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics,
@@ -223,7 +181,6 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 		update_in_insert = true,
 	}
 )
---autocmd
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
 	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
