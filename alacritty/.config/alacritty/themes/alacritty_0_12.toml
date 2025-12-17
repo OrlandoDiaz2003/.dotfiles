@@ -3,7 +3,7 @@
 
 [colors.primary]
 foreground = "#c5c8c6"
-background = "#1d1f21"
+background = "#14161a"
 
 [colors.normal]
 black = "#1d1f21"

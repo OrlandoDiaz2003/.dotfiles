@@ -9,6 +9,7 @@ vim.opt.virtualedit = "all"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.cursorline = false
+vim.opt.showmode = false
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 12
 vim.opt.guicursor = ""
@@ -52,7 +53,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.pack.add({
 	{ src = "https://github.com/blazkowolf/gruber-darker.nvim"},
 	{ src = "https://github.com/morhetz/gruvbox"},
-	{ src = "https://github.com/navarasu/onedark.nvim"},
+	{ src = "https://github.com/folke/tokyonight.nvim"},
 	{ src = "https://github.com/itchyny/lightline.vim"},
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
@@ -69,15 +70,15 @@ vim.pack.add({
 })
 
 vim.g.compile_mode = {}
-vim.g.lightline = { colorscheme = 'one' }
+vim.g.lightline = { colorscheme = "rosepine_moon" }
 
 vim.g.gruvbox_contrast_dark = "hard"
 vim.g.gruvbox_termcolors= 16
-require("onedark").setup({
-	style="dark",
-})
-vim.cmd("color onedark")
 
+require "tokyonight".setup({
+	transparent = true
+})
+vim.cmd("color tokyonight")
 require "oil".setup({
 	columns = {
 		"permissions",

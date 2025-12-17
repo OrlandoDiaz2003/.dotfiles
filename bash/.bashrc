@@ -27,10 +27,9 @@ PS1='[\[\e[38;5;244m\]\h\[\e[0m\]@\[\e[1;31m\]\u\[\e[0m\] \w \[\e[38;5;110m\]$(p
 export PATH
 export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/opt/node/bin:$PATH
-export PATH=$HOME/opt/android-studio/bin:$PATH
-export LESS='-R --use-color -Dd+r -Du+b'
-export MANPAGER="less -R --use-color -Dd+b -Du+g"
-export MANROFFOPT='-c'
+export PATH=$HOME/opt/floorp:$PATH
+export PATH=$HOME/opt/code/bin:$PATH
+export PATH=$HOME/opt/go/bin:$PATH
 
 #alias
 alias ls='ls --color=auto'
@@ -41,8 +40,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias vi="nvim"
-alias vim="nvim"
 alias vsc="code ."
 alias open="xdg-open ."
 alias neofetch="fastfetch --config neofetch"
@@ -51,6 +48,9 @@ alias gemini="npx https://github.com/google-gemini/gemini-cli"
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
