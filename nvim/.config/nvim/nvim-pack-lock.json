@@ -1,145 +1,20 @@
 {
   "plugins": {
-    "LuaSnip": {
-      "rev": "3732756",
-      "src": "https://github.com/L3MON4D3/LuaSnip"
-    },
-    "blink.cmp": {
-      "rev": "40380e7",
-      "src": "https://github.com/Saghen/blink.cmp"
-    },
-    "compile-mode.nvim": {
-      "rev": "0b2a059",
-      "src": "https://github.com/ej-shafran/compile-mode.nvim"
-    },
-    "darkplus.nvim": {
-      "rev": "6101ffc",
-      "src": "https://github.com/martinsione/darkplus.nvim"
-    },
-    "dired.nvim": {
-      "rev": "b56790d",
-      "src": "https://github.com/X3eRo0/dired.nvim"
-    },
-    "dracula.nvim": {
-      "rev": "d9bf36f",
-      "src": "https://github.com/binhtran432k/dracula.nvim"
-    },
-    "friendly-snippets": {
-      "rev": "572f566",
-      "src": "https://github.com/rafamadriz/friendly-snippets"
-    },
-    "gruber-darker.nvim": {
-      "rev": "98a2e14",
-      "src": "https://github.com/blazkowolf/gruber-darker.nvim"
-    },
-    "gruber_darker.nvim": {
-      "rev": "f42d6e8",
-      "src": "https://github.com/hwadii/gruber_darker.nvim"
-    },
-    "gruvbox": {
-      "rev": "697c002",
-      "src": "https://github.com/morhetz/gruvbox"
-    },
-    "gruvbox-high-contrast": {
-      "rev": "d26002b",
-      "src": "https://github.com/iibe/gruvbox-high-contrast"
-    },
-    "jellybeans-nvim": {
-      "rev": "d598926",
-      "src": "https://github.com/metalelf0/jellybeans-nvim"
-    },
-    "jellybeans.vim": {
-      "rev": "ef83bf4",
-      "src": "https://github.com/nanotech/jellybeans.vim"
-    },
-    "kanagawa.nvim": {
-      "rev": "aef7f5c",
-      "src": "https://github.com/rebelot/kanagawa.nvim"
-    },
-    "lightline.vim": {
-      "rev": "e358557",
-      "src": "https://github.com/itchyny/lightline.vim"
-    },
-    "lualine.nvim": {
-      "rev": "3946f01",
-      "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
-    "lush.nvim": {
-      "rev": "9c60ec2",
-      "src": "https://github.com/rktjmp/lush.nvim"
-    },
-    "mason-lspconfig.nvim": {
-      "rev": "d7b5feb",
-      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
-    },
-    "mason.nvim": {
-      "rev": "ad7146a",
-      "src": "https://github.com/mason-org/mason.nvim"
-    },
-    "minimal-madness-nvim": {
-      "rev": "92867bd",
-      "src": "https://github.com/leojimenezg/minimal-madness-nvim"
-    },
-    "neovim": {
-      "rev": "cf2a288",
-      "src": "https://github.com/rose-pine/neovim"
-    },
-    "nui.nvim": {
-      "rev": "de74099",
-      "src": "https://github.com/MunifTanjim/nui.nvim"
-    },
-    "nvim": {
-      "rev": "234fc04",
-      "src": "https://github.com/catppuccin/nvim"
-    },
-    "nvim-lspconfig": {
-      "rev": "2010fc6",
-      "src": "https://github.com/neovim/nvim-lspconfig"
-    },
+    "LuaSnip": [],
+    "blink.cmp": [],
+    "compile-mode.nvim": [],
+    "friendly-snippets": [],
+    "gruber-darker.nvim": [],
+    "mason-lspconfig.nvim": [],
+    "mason.nvim": [],
+    "nord.nvim": [],
+    "nvim-lspconfig": [],
     "nvim-treesitter": {
-      "rev": "42fc28ba",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'master'"
     },
-    "nvim-ts-autotag": {
-      "rev": "c4ca798",
-      "src": "https://github.com/windwp/nvim-ts-autotag"
-    },
-    "oasis.nvim": {
-      "rev": "d4de4f6",
-      "src": "https://github.com/uhs-robert/oasis.nvim.git"
-    },
-    "oil.nvim": {
-      "rev": "7e1cd77",
-      "src": "https://github.com/stevearc/oil.nvim"
-    },
-    "onedark.nvim": {
-      "rev": "de495fa",
-      "src": "https://github.com/navarasu/onedark.nvim"
-    },
-    "plenary.nvim": {
-      "rev": "b9fd522",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
-    "solarized.nvim": {
-      "rev": "c0dfe1c",
-      "src": "https://github.com/maxmx03/solarized.nvim"
-    },
-    "telescope.nvim": {
-      "rev": "c41b36d",
-      "src": "https://github.com/nvim-telescope/telescope.nvim"
-    },
-    "tokyonight.nvim": {
-      "rev": "5da1b76",
-      "src": "https://github.com/folke/tokyonight.nvim"
-    },
-    "vim-afterglow": {
-      "rev": "fe3a0c4",
-      "src": "https://github.com/danilo-augusto/vim-afterglow"
-    },
-    "vim-moonfly-colors": {
-      "rev": "ef85b89",
-      "src": "https://github.com/bluz71/vim-moonfly-colors"
-    }
+    "nvim-ts-autotag": [],
+    "oil.nvim": [],
+    "plenary.nvim": [],
+    "telescope.nvim": []
   }
 }

@@ -5,18 +5,17 @@ vim.opt.tabstop = 4
 vim.opt.swapfile = false
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
-vim.opt.virtualedit = "all"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.cursorline = false
-vim.opt.showmode = false
+vim.opt.showmode = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 12
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
 vim.opt.winborder = "rounded"
+vim.opt.laststatus = 2
 vim.g.mapleader = " "
-vim.opt.laststatus = 3
 
 vim.keymap.set("n", "<Leader>e", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<Leader>w", "<cmd>write<CR>")
@@ -52,9 +51,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 vim.pack.add({
 	{ src = "https://github.com/blazkowolf/gruber-darker.nvim"},
-	{ src = "https://github.com/morhetz/gruvbox"},
-	{ src = "https://github.com/folke/tokyonight.nvim"},
-	{ src = "https://github.com/itchyny/lightline.vim"},
+	{ src = "https://github.com/shaunsingh/nord.nvim"},
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -69,16 +66,14 @@ vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-ts-autotag", build = "make install_jsregexp", },
 })
 
+
 vim.g.compile_mode = {}
-vim.g.lightline = { colorscheme = "rosepine_moon" }
 
-vim.g.gruvbox_contrast_dark = "hard"
-vim.g.gruvbox_termcolors= 16
+vim.g.nord_bold = false
+vim.g.nord_italic = false
 
-require "tokyonight".setup({
-	transparent = true
-})
-vim.cmd("color tokyonight")
+vim.cmd("color nord")
+
 require "oil".setup({
 	columns = {
 		"permissions",
