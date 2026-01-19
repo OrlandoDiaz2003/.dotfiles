@@ -2,10 +2,30 @@
 
 (setq-default inhibit-splash-screen t
 	          make-backup-files nil
-	      tab-width 4
-	      indent-tabs-mode nil
-	      compilation-scroll-output t
-	      )
+	          tab-width 4
+	          indent-tabs-mode nil
+	          compilation-scroll-output t
+              truncate-lines t
+	          )
+
+(require 'whitespace)
+
+(setq whitespace-style
+      '(face
+        tabs
+        spaces
+        trailing
+        space-mark
+        tab-mark))
+
+(setq whitespace-display-mappingsf
+      '(
+        (tab-mark ?\t [?\u2192 ?\s])
+        (space-mark ?\s [?\u00B7])
+        ))
+
+(global-whitespace-mode 1)
+
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -13,7 +33,7 @@
 (add-to-list 'load-path "~/.emacs.local/")
 
 (add-to-list 'default-frame-alist
-	     '(font . "JetBrainsMono Nerd Font Mono 16"))
+             '(font . "JetBrainsMono Nerd Font Mono 16"))
 
 (require 'simpc-mode)
 (require 'smex)
@@ -21,6 +41,7 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+(global-set-key (kbd "C-,") 'duplicate-line)
 
 (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
 
@@ -31,5 +52,5 @@
 (ido-mode 1)
 (ido-everywhere 1)
 (package-initialize)
-(load-file custom-file)
 
+(load-file custom-file)

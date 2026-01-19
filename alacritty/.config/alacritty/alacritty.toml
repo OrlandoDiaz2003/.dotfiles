@@ -1,5 +1,6 @@
 [general]
-import = ["/home/orlando/.config/alacritty/themes/nord.toml"]
+import = ["/home/orlando/.config/alacritty/themes/gruber_darker.toml"]
+
 [window]
 opacity = 1
 

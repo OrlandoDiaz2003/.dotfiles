@@ -1,11 +1,13 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
+vim.opt.list = true
 vim.opt.tabstop = 4
 vim.opt.swapfile = false
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.hlsearch = false
+vim.o.listchars = 'tab:→ ,lead:·,trail:·,space:·'
 vim.opt.incsearch = true
 vim.opt.cursorline = false
 vim.opt.showmode = true
@@ -50,8 +52,9 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.pack.add({
-	{ src = "https://github.com/blazkowolf/gruber-darker.nvim"},
 	{ src = "https://github.com/shaunsingh/nord.nvim"},
+	{ src = "https://github.com/loctvl842/monokai-pro.nvim"},
+	{ src = "https://github.com/folke/tokyonight.nvim"},
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -66,13 +69,12 @@ vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-ts-autotag", build = "make install_jsregexp", },
 })
 
-
 vim.g.compile_mode = {}
 
 vim.g.nord_bold = false
 vim.g.nord_italic = false
 
-vim.cmd("color nord")
+vim.cmd("color tokyonight-night")
 
 require "oil".setup({
 	columns = {
