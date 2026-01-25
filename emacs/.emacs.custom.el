@@ -103,8 +103,10 @@
      default))
  '(display-line-numbers 'visual)
  '(package-selected-packages
-   '(doom doom-themes eglot go-mode gruber-darker-theme gruvbox-theme
-          lua-mode markdown-mode material-theme solarized-theme))
+   '(doom doom-themes eglot go-mode
+          gruber-darker-theme gruvbox-theme
+          lua-mode markdown-mode material-theme
+          solarized-theme))
  '(show-trailing-whitespace t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

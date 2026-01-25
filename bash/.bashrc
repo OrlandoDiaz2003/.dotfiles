@@ -19,18 +19,18 @@ shopt -s histappend
 
 #git completion
 parse_git_branch() {
- git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then 
+        printf ":\e[34m%s\e[0m" "$branch"
+    fi
 }
 
-PS1='[\[\e[38;5;244m\]\h\[\e[0m\]@\[\e[1;34m\]\u\[\e[0m\] \W \[\e[38;5;110m\]$(parse_git_branch)\[\e[0m\]]$ '
+PS1='[\u@\h \W$(parse_git_branch)]$ '
 
 export PATH
 export PATH=$HOME/.local/scripts:$PATH
 export PATH=$HOME/opt/node/bin:$PATH
-export PATH=$HOME/opt/floorp:$PATH
 export PATH=$HOME/opt/code/bin:$PATH
-export PATH=$HOME/opt/go/bin:$PATH
-export PATH=$HOME/opt/lsp/clangd_21.1.0/bin:$PATH
 export PATH=$HOME/opt/lsp/clangd_21.1.0/bin:$PATH
 export PATH=$HOME/software/gf:$PATH
 export MANWIDTH=85

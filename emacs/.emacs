@@ -5,7 +5,6 @@
 	          tab-width 4
 	          indent-tabs-mode nil
 	          compilation-scroll-output t
-              truncate-lines t
 	          )
 
 (require 'whitespace)
@@ -26,14 +25,13 @@
 
 (global-whitespace-mode 1)
 
-
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 (add-to-list 'load-path "~/.emacs.local/")
 
 (add-to-list 'default-frame-alist
-             '(font . "JetBrainsMono Nerd Font Mono 16"))
+             '(font . "Iosevka Nerd Font Mono 18"))
 
 (require 'simpc-mode)
 (require 'smex)
@@ -48,7 +46,6 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
-
 (ido-mode 1)
 (ido-everywhere 1)
 (package-initialize)

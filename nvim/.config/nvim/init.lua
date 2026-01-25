@@ -1,6 +1,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
+vim.opt.expandtab = true
 vim.opt.list = true
 vim.opt.tabstop = 4
 vim.opt.swapfile = false
@@ -55,6 +56,7 @@ vim.pack.add({
 	{ src = "https://github.com/shaunsingh/nord.nvim"},
 	{ src = "https://github.com/loctvl842/monokai-pro.nvim"},
 	{ src = "https://github.com/folke/tokyonight.nvim"},
+	{ src = "https://github.com/sphamba/smear-cursor.nvim"},
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -75,6 +77,7 @@ vim.g.nord_bold = false
 vim.g.nord_italic = false
 
 vim.cmd("color tokyonight-night")
+require"smear_cursor".enabled = true
 
 require "oil".setup({
 	columns = {
