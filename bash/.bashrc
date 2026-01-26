@@ -19,13 +19,10 @@ shopt -s histappend
 
 #git completion
 parse_git_branch() {
-    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-    if [ -n "$branch" ]; then 
-        printf ":\e[34m%s\e[0m" "$branch"
-    fi
+    git symbolic-ref --short HEAD 2>/dev/null
 }
 
-PS1='[\u@\h \W$(parse_git_branch)]$ '
+PS1='[\u@\h \W$(b=$(parse_git_branch); if [ -n "$b" ]; then printf ":\[\e[38;2;239;41;41m\]%s\[\e[0m\]" "$b"; fi)]$ '
 
 export PATH
 export PATH=$HOME/.local/scripts:$PATH
