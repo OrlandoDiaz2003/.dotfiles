@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.pack.add({
-	{ src = "https://github.com/shaunsingh/nord.nvim"},
+	{ src = "https://github.com/blazkowolf/gruber-darker.nvim"},
 	{ src = "https://github.com/loctvl842/monokai-pro.nvim"},
 	{ src = "https://github.com/folke/tokyonight.nvim"},
 	{ src = "https://github.com/sphamba/smear-cursor.nvim"},
@@ -75,8 +75,23 @@ vim.g.compile_mode = {}
 
 vim.g.nord_bold = false
 vim.g.nord_italic = false
+require"gruber-darker".setup({
+    bold = false,
+    italic = {
+        strings = false,
+        comments = false,
+        operators = false,
+        folds = false,
+    },
+    undercurl = false,
+    underline = false,
+})
 
-vim.cmd("color tokyonight-night")
+require"tokyonight".setup({
+    transparent = true
+})
+
+vim.cmd("color gruber-darker")
 require"smear_cursor".enabled = true
 
 require "oil".setup({
