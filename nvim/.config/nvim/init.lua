@@ -73,8 +73,6 @@ vim.pack.add({
 
 vim.g.compile_mode = {}
 
-vim.g.nord_bold = false
-vim.g.nord_italic = false
 require"gruber-darker".setup({
     bold = false,
     italic = {
