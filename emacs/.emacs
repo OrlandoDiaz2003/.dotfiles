@@ -22,38 +22,14 @@
 
 (require 'whitespace)
 
-(setq whitespace-style
-      '(face
-        tabs
-        spaces
-        trailing
-        space-mark
-        tab-mark))
-
+(require 'whitespace)
+(setq whitespace-style '(face trailing))
 (global-whitespace-mode 1)
-(setq whitespace-display-mappings
-      '(
-        (tab-mark ?\t [?\u2192 ?\s])
-        (space-mark ?\s [?\u00B7])
-        ))
-
-;; --- Tema y Parches Visuales para Rosé Pine (Clásico) ---
-(load-theme 'base16-rose-pine t)
-
-(custom-theme-set-faces
- 'base16-rose-pine
- '(whitespace-space ((t (:background nil :foreground "#26233a"))))
- '(whitespace-newline ((t (:background nil :foreground "#26233a"))))
- '(whitespace-tab ((t (:background nil :foreground "#1f1d2e"))))
- '(whitespace-trailing ((t (:background "#26233a" :foreground "#eb6f92"))))
- '(line-number ((t (:inherit default :height 1.0 :foreground "#6e6a86" :background "#191724"))))
- '(line-number-current-line ((t (:inherit default :height 1.0 :bold t :foreground "#e0def4" :background "#1f1d2e")))))
-
 
 (add-to-list 'load-path "~/.emacs.local/")
 
 (add-to-list 'default-frame-alist
-             '(font . "Hack 17"))
+             '(font . "Fira Code  17"))
 
 (use-package company)
 (add-hook 'prog-mode-hook 'company-mode)
@@ -66,6 +42,15 @@
 (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
 
 (use-package smex)
+
+(use-package vterm
+  :hook (vterm-mode . (lambda ()
+                        (display-line-numbers-mode -1))))
+(use-package multi-vterm
+  :bind (("C-c t n" . multi-vterm)
+         ("C-c t p" . multi-vterm-prev)
+         ("C-c t N" . multi-vterm-next)
+         ("C-c t r" . multi-vterm-rename)))
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
